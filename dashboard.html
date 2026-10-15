@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Payments Executive View</title>
+<style>
+:root{--bg:#eef2f7;--card:#fff;--ink:#13233a;--mute:#5b6b7f;--hot:#c2410c;--cool:#8da2b8;--line:#d9e0ea;--warn:#fdf3e7;--navy:#0b2545;--g:#2e7d32;--b:#1e6fb8;--y:#e0a100;--r:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1626;--card:#13233a;--ink:#eef2f7;--mute:#a3b3c7;--hot:#fb923c;--cool:#5b6b7f;--line:#243650;--warn:#2a2316;--navy:#eef2f7;--g:#4caf50;--b:#4a9be0;--y:#f5b800;--r:#ef5350}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 system-ui,sans-serif;padding:20px 16px}
+.w{max-width:1000px;margin:auto}
+h1{font-size:24px;margin:0 0 4px;color:var(--navy)}.sub{color:var(--mute);margin:0 0 16px}
+.act{background:var(--card);border-left:6px solid var(--r);padding:14px 16px;border-radius:8px;margin-bottom:16px;font-size:17px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.k,.c{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px}
+.k b{display:block;font-size:30px}.k span{color:var(--mute);font-size:13px}.hot{color:var(--hot)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+h2{font-size:14px;margin:0 0 10px}
+.r{display:grid;grid-template-columns:120px 1fr 90px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+.t{background:var(--line);height:16px;border-radius:3px;overflow:hidden}.t i{display:block;height:100%;background:var(--cool)}.t i.h{background:var(--r)}.t i.y{background:var(--y)}.t i.b{background:var(--b)}.t i.g{background:var(--g)}.lg{font-size:12px;color:var(--mute);margin:0 0 12px}.lg b{font-size:14px}.hot{color:var(--r)!important}.blu{color:var(--b)}
+.v{text-align:right;color:var(--mute)}.v b{color:var(--ink)}
+.note{color:var(--mute);font-size:12px;margin-top:8px}
+.cav{background:var(--warn);border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:12px;font-size:12.5px;color:var(--mute)}
+@media(max-width:700px){.kpis,.grid{grid-template-columns:1fr}.r{grid-template-columns:100px 1fr 80px}}
+</style></head><body><div class="w">
+<h1>Payments Performance: Executive View</h1>
+<p class="sub">750 transactions, Aug 1 – Sep 30 2026 · SLA breach = processing time above the product's SLA target</p>
+<p class="lg"><b style="color:var(--g)">■</b> &lt;20% good &nbsp; <b style="color:var(--b)">■</b> 20–40% acceptable &nbsp; <b style="color:var(--y)">■</b> 40–60% warning &nbsp; <b style="color:var(--r)">■</b> 60%+ danger &nbsp;(SLA breach rate)</p><div class="act"><b>Recommended action:</b> Prioritize a Gateway B performance review. It misses SLA on 83% of transactions, about double the other systems.</div>
+<div class="kpis">
+<div class="k"><b class="hot">83%</b><span>Gateway B SLA breach rate (n=219)<br>vs 43% CorePay, 45% Gateway A</span></div>
+<div class="k"><b class="hot">3.8s</b><span>Gateway B median processing time<br>vs 2.5s CorePay, 3.1s Gateway A</span></div>
+<div class="k"><b class="blu">~8%</b><span>Failure rate: Gateway B 8.6%, CorePay 8.0%<br>Not the differentiator</span></div>
+</div>
+<div class="c" style="margin-bottom:12px"><h2>SLA breach rate by processing system</h2>
+<div class="r"><span>Gateway B</span><div class="t"><i class="h" style="width:83.1%"></i></div><span class="v"><b>83%</b> n=219</span></div>
+<div class="r"><span>Gateway A</span><div class="t"><i class="y" style="width:44.9%"></i></div><span class="v"><b>45%</b> n=147</span></div>
+<div class="r"><span>CorePay</span><div class="t"><i class="y" style="width:42.5%"></i></div><span class="v"><b>43%</b> n=372</span></div></div>
+<div class="grid">
+<div class="c"><h2>Gateway B: breach rate by product</h2>
+<div class="r"><span>Instant Pay</span><div class="t"><i class="h" style="width:98.1%"></i></div><span class="v"><b>98%</b> n=54</span></div>
+<div class="r"><span>API Card</span><div class="t"><i class="h" style="width:89.5%"></i></div><span class="v"><b>89%</b> n=38</span></div>
+<div class="r"><span>Treasury ACH</span><div class="t"><i class="h" style="width:81.4%"></i></div><span class="v"><b>81%</b> n=43</span></div>
+<div class="r"><span>Partner ACH</span><div class="t"><i class="h" style="width:78.8%"></i></div><span class="v"><b>79%</b> n=33</span></div>
+<div class="r"><span>Commercial Card</span><div class="t"><i class="h" style="width:66.7%"></i></div><span class="v"><b>67%</b> n=51</span></div>
+<p class="note">All 5 products breach 67%+. No single product explains it.</p></div>
+<div class="c"><h2>Gateway B: breach rate by channel</h2>
+<div class="r"><span>API</span><div class="t"><i class="h" style="width:88.5%"></i></div><span class="v"><b>89%</b> n=61</span></div>
+<div class="r"><span>Branch</span><div class="t"><i class="h" style="width:87.5%"></i></div><span class="v"><b>88%</b> n=32</span></div>
+<div class="r"><span>Mobile</span><div class="t"><i class="h" style="width:83%"></i></div><span class="v"><b>83%</b> n=55</span></div>
+<div class="r"><span>Online</span><div class="t"><i class="h" style="width:76.7%"></i></div><span class="v"><b>77%</b> n=74</span></div>
+<p class="note">Same on every channel. Other systems: 37–54% per channel.</p></div></div>
+<div class="cav"><b>Caveats:</b> 5 duplicate rows removed · 12 missing processing times excluded from SLA and median · only ~2 months of data · Payment_Type and Payment_Family removed as unreliable · cause of the slowness is not in the data · products with n&lt;30 are low confidence (none shown here are Gateway B).</div>
+</div></body></html>
